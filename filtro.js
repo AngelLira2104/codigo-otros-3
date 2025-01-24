@@ -8,9 +8,9 @@ const productos = [
   {nombre: "Zapato rojo", tipo: "zapato", color: "rojo", img: "./zapato-rojo.jpg"}
 ]
 
-const li = document.getElementsByName("lista-de-productos")
-const $i = document.querySelector('.input');
-
+const li = document.getElementById("lista-de-productos")//no era getName, es getElementByID
+const i = document.querySelector('#input'); //borre la $ para poder entenderle mejor. 
+function displayProductos(productos){ //<----------------
 for (let i = 0; i < productos.length; i++) {
   var d = document.createElement("div")
   d.classList.add("producto")
@@ -26,9 +26,9 @@ for (let i = 0; i < productos.length; i++) {
   d.appendChild(imagen)
 
   li.appendChild(d)
-}
+}}
 
-displayProductos(productos)
+displayProductos(productos)//funcion no estaba creada y se creo para poder llamar. de echo aqui la esta llamando
 const botonDeFiltro = document.querySelector("button");
 
 botonDeFiltro.onclick = function() {
@@ -36,7 +36,7 @@ botonDeFiltro.onclick = function() {
     li.removeChild(li.firstChild);
   }
 
-  const texto = $i.value;
+  const texto = document.getElementById("text").value; //no habia de donde jalar mi input, se crea la variable para poder leer el dato
   console.log(texto);
   const productosFiltrados = filtrado(productos, texto );
 
